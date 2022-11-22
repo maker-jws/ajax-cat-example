@@ -5,7 +5,7 @@ const target = document.querySelector(".target-container")
 
 async function fetchCats() {
     // test cat 
-    const newCard = makeCard("Joshua","http://placekitten.com/g/200/200", ["a", "b","c"])
+    const newCard = makeCard("Joshua","https://placekitten.com/g/200/200", ["a", "b","c"])
     console.log(newCard)
     target.appendChild(newCard)
 }
