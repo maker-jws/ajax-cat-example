@@ -5,9 +5,30 @@ const target = document.querySelector(".target-container")
 
 async function fetchCats() {
     // test cat 
-    const newCard = makeCard("Joshua","https://placekitten.com/g/200/200", ["a", "b","c"])
-    console.log(newCard)
+    // const newCard = makeCard("Joshua","https://placekitten.com/g/200/200", ["a", "b","c"])
+    // console.log(newCard)
+    // target.appendChild(newCard)
+    const URL = "https://cataas.com/cat?json=true"
+    // URL is the destination of my api -> expect it to give me JSON data 
+    const request = await fetch(URL) 
+    // fetch returns a promise -> a special object -> tells js to hang tight until a special 'resolve' function is call
+    // fetch API -> built into all modern browsers 
+    // fetch API -> handle Asynchronous Javascript and XML requests (AJAX)
+    // a server is contacted -> request is made
+    console.log(request)
+    // data is sent back as a response -> 
+    const response = await request.json()
+    // we can mess with it
+    console.log(response)
+
+    const img =`https://cataas.com`+ response.url
+    console.log(img)
+    const tags = response.tags
+    const owner = response.owner || "None"
+
+    const newCard = makeCard(owner,img, tags)
     target.appendChild(newCard)
+
 }
 
 function makeCard(owner, img, tags) {
