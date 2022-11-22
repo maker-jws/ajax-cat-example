@@ -64,9 +64,6 @@ function makeCard(owner, img, tags) {
     return card
 }
 
-
-
-
 btn.addEventListener("click", fetchCats);
 
 
